@@ -1,0 +1,23 @@
+- toInt() : 정수변환
+- toDouble() : 실수변환
+- toLong() : long 변환 
+- toString() : 문자열 변환
+    - 형식
+```kotlin
+fun main() {
+    val num = "123".toInt()
+    println(num + 10)
+}
+```
+- toIntOrNull() : 정수변환 실패 시 null 반환
+    - 형식
+```kotlin
+fun main() {
+    val a = "123".toIntOrNull()
+    val b = "abc".toIntOrNull()
+
+    println(a)
+    println(b)
+} /* 결과 : 123
+           null */
+```
