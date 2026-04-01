@@ -6,7 +6,7 @@ Model (데이터 / 서버 / DB)_
 
 ----
 
-> ## 종류 설명
+> ## 기본 구조
 
 
 - 로직 :
@@ -17,7 +17,20 @@ API 호출_
 
     - View (UI) 
         - 특징 로직 없음 / ViewModel만 호출
+
+    - ViewControllor
+        - ####  _안드로이드에서는 Activity / Composable / 이벤트 처리 부분이 ViewController 역할_
+        - View를 어떻게 동작하게 만들지 제어
+        - View 안에서 ViewModel을 호출하는 과정
         
+     ```kotlin
+        onClick { }
+        TextField { onValueChange }
+        setContent { }
+     ```
+    
+    -> Composable 내부 이벤트 처리 부분 + viewModel 호출
+
     - ViewModel 
         - ___상태(state) 저장 / 로직 처리 / 데이터 가공(데이터만 관리) / 모델 연결___
         - 상태 종류 
@@ -59,6 +72,15 @@ MVVM은 구조(설계 방식)
 - UI와 로직을 분리하는 아키텍처 패턴
 
     - ___main을 비유 시 ViewModel 클래스를 만들고 사용자가 View에서 입력 시 ViewModel이 model이나 다른 것들을 이용해 처리___
+
+- 간단한 실제 구조
+1. 앱 실행
+2. Activity 생성 (onCreate)
+3. setContent 실행
+4. MVVM 구조 안에서 UI 실행
+5. 사용자 클릭
+6. ViewController → ViewModel
+7. 상태 변경 → UI 갱신
 
 ---
 > ## 예시
